@@ -1,0 +1,33 @@
+# if you want to configure triggers for Azure CI see
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml#tags
+
+jobs:
+    # Example job that runs end-to-end tests using Cypress test runner
+    #   https://www.cypress.io/
+
+    - job: Cypress_e2e_tests
+      pool:
+          vmImage: "ubuntu-20.04"
+      steps:
+          - task: NodeTool@0
+            inputs:
+                versionSpec: "12.x"
+                displayName: "Install Node.js 12.x"
+
+          - script: npm install
+            displayName: "Install NPM dependencies"
+
+          - script: npm run cy:verify
+            displayName: "Cypress verify is installed"
+
+          - script: npm run cy:run -- --browser chrome
+            displayName: "Run Cypress tests"
+            continueOnError: true # We want to publish results on failure
+
+          - task: PublishTestResults@2
+            inputs:
+                testResultsFormat: "JUnit"
+                testResultsFiles: "test-output-*.xml"
+                mergeTestResults: true
+                testRunTitle: "Cypress Tests"
+                failTaskOnFailedTests: true

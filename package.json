@@ -1,0 +1,29 @@
+{
+    "name": "ptk_e2e",
+    "version": "1.0.0",
+    "description": "End-to-end tests for PTK projects",
+    "main": "index.js",
+    "scripts": {
+        "cy:verify": "cypress verify",
+        "cy:version": "cypress version",
+        "cy:run": "cypress run",
+        "cy:run:record-parallel": "cypress run --record --key b0eeeb06-fcb8-4a73-9cdd-405e74619b1f --parallel",
+        "cy:open": "cypress open"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cypress": "^9.2.1",
+        "cypress-iframe": "^1.0.1",
+        "date-fns": "^2.9.0",
+        "cypress-commands": "^2.0.1",
+        "faker": "5.5.3"
+    },
+    "devDependencies": {
+        "cypress-file-upload": "^4.1.1",
+        "cypress-image-snapshot": "^3.1.1",
+        "prettier": "^2.3.2",
+        "@cypress/webpack-preprocessor": "^5.11.0",
+        "cypress-xpath": "^1.6.2"
+    }
+}
