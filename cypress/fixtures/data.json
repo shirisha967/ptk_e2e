@@ -1,0 +1,16 @@
+{
+    "tableIndexes": {
+        "jobs": {
+            "Property": 1,
+            "Location": 2,
+            "Services": 3,
+            "Date": 4,
+            "Time": 5,
+            "Start": 6,
+            "End": 7,
+            "Detail": 8,
+            "Accepted": 9,
+            "Edit": 10
+        }
+    }
+}
